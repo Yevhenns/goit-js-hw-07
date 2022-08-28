@@ -25,11 +25,7 @@ function itemMarkup(galleryItems) {
 }
 
 
-galleryContainer.addEventListener('click', (event) => {
-    console.log(event.target)
+galleryContainer.addEventListener('click', () => {
+    console.log(galleryItems.orginal)
 })
 
-const instance = basicLightbox.create(`
-	<h1>Dynamic Content</h1>
-	<p>You can set the content of the lightbox with JS.</p>
-`)
