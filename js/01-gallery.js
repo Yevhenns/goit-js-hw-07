@@ -25,7 +25,35 @@ function itemMarkup(galleryItems) {
 }
 
 
-galleryContainer.addEventListener('click', () => {
-    console.log(galleryItems.orginal)
+const instance = basicLightbox.create(`
+    <div class="modal"></div>
+`)
+const instanceDiv = document.querySelector('modal')
+
+
+galleryContainer.addEventListener('click', (event) => {
+    event.preventDefault()
+    
+    const currentUrl = event.target.dataset.source;
+    console.log(currentUrl)
+    instance.show();
+    
+    function lightboxImage(galleryItems) {
+    return galleryItems.map(({ preview, original, description }) => {
+        return `
+        <div class="gallery__item">
+            <a class="gallery__link" href="${original}">
+                <img
+                class="gallery__image"
+                src="${preview}"
+                data-source="${original}"
+                alt="${description}"
+                />
+            </a>
+        </div>`
+    }).join("")
+}
 })
+
+
 
