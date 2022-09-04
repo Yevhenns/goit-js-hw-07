@@ -1,7 +1,4 @@
 import { galleryItems } from './gallery-items.js';
-// Change code below this line
-
-// console.log(galleryItems);
 
 const galleryContainer = document.querySelector(".gallery");
 const galleryMarkup = itemMarkup(galleryItems);
@@ -24,36 +21,13 @@ function itemMarkup(galleryItems) {
     }).join("")
 }
 
-
-const instance = basicLightbox.create(`
-    <div class="modal"></div>
-`)
-const instanceDiv = document.querySelector('modal')
-
-
 galleryContainer.addEventListener('click', (event) => {
-    event.preventDefault()
-    
-    const currentUrl = event.target.dataset.source;
-    console.log(currentUrl)
-    instance.show();
-    
-    function lightboxImage(galleryItems) {
-    return galleryItems.map(({ preview, original, description }) => {
-        return `
-        <div class="gallery__item">
-            <a class="gallery__link" href="${original}">
-                <img
-                class="gallery__image"
-                src="${preview}"
-                data-source="${original}"
-                alt="${description}"
-                />
-            </a>
-        </div>`
-    }).join("")
+  
+  const ImgUrlOriginal = event.target.dataset.source;
+  const instance = basicLightbox.create(`
+    <img src="${ImgUrlOriginal}" width="800" height="600">
+`)
+   instance.show();
 }
-})
 
-
-
+ 
