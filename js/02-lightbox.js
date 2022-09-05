@@ -45,19 +45,15 @@ function openImgModal(
         return;
     }
 
-    var lightbox =
-        new SimpleLightbox(
-            ".gallery a",
-            {
-                captions: true,
-                captionData:
-                    "alt",
-                captionDelay: 250,
-                animationSpeed: 250,
-                // captionPosition:
-                //     "bottom",
-            }
-        );
+    new SimpleLightbox(
+        ".gallery a",
+        {
+            captionData:
+                "alt",
+            captionDelay: 250,
+            animationSpeed: 250,
+        }
+    );
 
     const ImgUrlOriginal =
         event.target
@@ -67,7 +63,7 @@ function openImgModal(
         basicLightbox.create(`
   <img src="${ImgUrlOriginal}" width="800" height="600"/>
   `);
-    instance.show();
+    // instance.show();
 }
 galleryContainer.addEventListener(
     "click",
