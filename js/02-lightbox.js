@@ -54,16 +54,6 @@ function openImgModal(
             animationSpeed: 250,
         }
     );
-
-    const ImgUrlOriginal =
-        event.target
-            .dataset
-            .source;
-    const instance =
-        basicLightbox.create(`
-  <img src="${ImgUrlOriginal}" width="800" height="600"/>
-  `);
-    // instance.show();
 }
 galleryContainer.addEventListener(
     "click",
